@@ -12,8 +12,6 @@ def save_to_docx(entries):
     for entry in entries:
         doc.add_paragraph(entry)
 
-    if image_path:
-        doc.add_picture(image_path, width=Inches(6), height=Inches(4))
 
     today = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")  # Текущая дата и время
     file_path = f"Дневник_{today}.docx"
@@ -25,12 +23,6 @@ def browse_image():
     file_path = filedialog.askopenfilename(filetypes=[("Image Files", "*.png;*.jpg;*.jpeg")])
     if file_path:
         image_path = file_path
-        # Установка фонового изображения
-        img = Image.open(image_path)
-        img = img.resize((root.winfo_width(), root.winfo_height()))
-        img = ImageTk.PhotoImage(img)
-        background_label.configure(image=img)
-        background_label.image = img
 
 # Создание окна
 root = tk.Tk()
