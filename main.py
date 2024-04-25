@@ -5,8 +5,7 @@ from docx.shared import Inches
 from PIL import Image, ImageTk
 from datetime import datetime
 
-image_path = "C:/Users/xtime/Desktop/a100do/dnewnik/bg.jpg"  # Переменная для хранения пути к изображению фона
-
+# Сохранение
 def save_to_docx(entries):
     doc = Document()
 
@@ -40,16 +39,6 @@ root.title("Дневник")
 # Установка размера окна
 root.geometry("750x410")  # Установите размер окна по вашему усмотрению
 root.resizable(False, False)
-# Создание метки для фонового изображения
-background_label = tk.Label(root)
-background_label.place(x=0, y=0, relwidth=1, relheight=1)
-
-# Установка фонового изображения
-img = Image.open(image_path)
-img = img.resize((root.winfo_width(), root.winfo_height()))
-img = ImageTk.PhotoImage(img)
-background_label.configure(image=img)
-background_label.image = img
 
 # Создание текстового поля для записей
 text_entry = tk.Text(root, height=15, width=103, font=("Comic Sans MS", 8))  # Задание шрифта текста
